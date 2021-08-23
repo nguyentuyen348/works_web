@@ -20,7 +20,7 @@ class CreateJobPostTable extends Migration
             $table->string('title');
             $table->string('level');
             $table->string('type')->nullable();
-            $table->string('category');
+
             $table->string('working_location');
             $table->text('description');
             $table->text('requirements');

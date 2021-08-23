@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('backends.layouts.master');
-});
+})->name('home');
 
 Route::prefix('page')->group(function (){
     Route::get('login',[\App\Http\Controllers\LoginController::class,'showLogin'])->name('page.showLogin');

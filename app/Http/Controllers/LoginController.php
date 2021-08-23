@@ -23,12 +23,11 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($data)) {
-            return redirect()->route('users.index');
+            return redirect()->route('home');
         } else {
             session()->flash('login_error', 'account not exist!');
             return redirect()->route('login');
         }
-
     }
 
     public function logout()

@@ -17,6 +17,7 @@ class CreateProfileUserTable extends Migration
             $table->id();
             $table->foreign('id')->references('id')->on('users');
             $table->string('full_name');
+
             $table->string('age')->nullable();
             $table->string('gender')->nullable();
             $table->string('marital_status')->nullable();
