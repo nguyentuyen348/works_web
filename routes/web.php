@@ -19,7 +19,9 @@ Route::get('/', function () {
 
 Route::prefix('page')->group(function (){
     Route::get('login',[\App\Http\Controllers\LoginController::class,'showLogin'])->name('page.showLogin');
+    Route::post('login',[\App\Http\Controllers\LoginController::class,'login']);
 
     Route::get('register',[\App\Http\Controllers\RegisterController::class,'showRegister'])->name('page.showRegister');
+    Route::post('register',[\App\Http\Controllers\RegisterController::class,'register']);
 
 });

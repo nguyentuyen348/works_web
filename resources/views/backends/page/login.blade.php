@@ -55,6 +55,7 @@
         <div class="row kpx_row-sm-offset-3">
             <div class="col-xs-12 col-sm-6">
                 <form class="kpx_loginForm" action="" autocomplete="off" method="POST">
+                    @csrf
                     <div class="input-group">
                         <span class="input-group-addon"><span class="fa fa-user"></span></span>
                         <input type="email" class="form-control" name="email" placeholder="Email">

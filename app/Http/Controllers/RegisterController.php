@@ -21,7 +21,9 @@ class RegisterController extends Controller
         $user->email=$request->email;
         $user->password= Hash::make($request->password);
 
-        $user->save();
-        return redirect()->action([LoginController::class,'showLogin']);
+        if ($request->password===$request->confirm_password) {
+            $user->save();
+            return redirect()->action([LoginController::class, 'showLogin']);
+        }
     }
 }
