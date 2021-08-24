@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +16,7 @@ class RegisterController extends Controller
         return view('backends.page.register');
     }
 
-    public function register(Request $request, User $user)
+    public function register(RegisterRequest $request, User $user)
     {
         $user->name=$request->name;
         $user->email=$request->email;

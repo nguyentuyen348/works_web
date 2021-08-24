@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\LoginRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,7 @@ class LoginController extends Controller
         return view('backends.page.login');
     }
 
-    public function login(Request $request, User $user)
+    public function login(LoginRequest $request)
     {
         $email=$request->email;
         $password=$request->password;
@@ -23,9 +24,10 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($data)) {
+            session()->flash('success','login successfully');
             return redirect()->route('home');
         } else {
-            session()->flash('login_error', 'account not exist!');
+            session()->flash('error', 'account not exist!');
             return redirect()->route('login');
         }
     }

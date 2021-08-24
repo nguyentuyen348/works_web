@@ -25,3 +25,24 @@ Route::prefix('page')->group(function (){
     Route::post('register',[\App\Http\Controllers\RegisterController::class,'register']);
 
 });
+
+Route::prefix('admin')->group(function (){
+    Route::prefix('categories')->group(function (){
+        Route::get('index',[\App\Http\Controllers\CategoryController::class,'index'])->name('categories.index');
+
+        Route::get('create',[\App\Http\Controllers\CategoryController::class,'create'])->name('categories.create');
+        Route::post('create',[\App\Http\Controllers\CategoryController::class,'store']);
+
+        Route::get('edit/{id}',[\App\Http\Controllers\CategoryController::class,'edit'])->name('categories.edit');
+        Route::post('edit/{id}',[\App\Http\Controllers\CategoryController::class,'update']);
+
+        Route::get('destroy/{id}',[\App\Http\Controllers\CategoryController::class,'destroy'])->name('categories.destroy');
+    });
+
+    Route::prefix('jobs')->group(function (){
+        Route::get('create',[\App\Http\Controllers\JobController::class,'create'])->name('jobs.create');
+    });
+
+
+
+});

@@ -32,7 +32,7 @@ class LoginRequest extends FormRequest
 
     public function messages()
     {
-        return [
+        return $message = [
             'name' => [
                 'required' => 'Please enter username',
             ],

@@ -24,8 +24,29 @@ class RegisterRequest extends FormRequest
     public function rules()
     {
         return [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6',
+            'confirm_password' => 'required|min:6',
 
+        ];
+    }
 
+    public function messages()
+    {
+        return $massage = [
+            'name' => [
+                'required' => 'Please enter username',
+            ],
+            'email' => [
+                'required' => 'please enter email',
+            ],
+            'password' => [
+                'required' => 'please enter password'
+            ],
+            'confirm_password' => [
+                'required' => 'please enter password'
+            ],
         ];
     }
 }

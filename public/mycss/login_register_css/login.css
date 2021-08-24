@@ -1,7 +1,4 @@
-/*
-    @hiercelik - hiercelik.net
-    @koalapix - koalapix.com
-*/
+
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css);
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web&subset=latin,latin-ext);
 @media (min-width: 768px) {
@@ -172,7 +169,6 @@ opacity:0.9;
 .kpx_login .kpx_loginForm  .help-block {
     color: red;
 }
-
 
 @media (min-width: 768px) {
     .kpx_login .kpx_forgotPwd {

@@ -10,6 +10,7 @@
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="{{asset('mycss/styles.css')}}" rel="stylesheet" />
+    <link rel="stylesheet" href="{{'mycss/login_register_css/login.css'}}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
@@ -108,10 +109,15 @@
             </div>
         </nav>
     </div>
-
+    <div id="layoutSidenav_content">
+        <main>
+            <div class="container-fluid px-4">
     <div>
-        <1>
+        @yield('content')
     </div>
+
+            </div>
+        </main>
 
     <footer class="py-4 bg-light mt-auto">
         <div class="container-fluid px-4">
