@@ -13,9 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('backends.layouts.master');
-})->name('home');
+Route::get('/',[\App\Http\Controllers\HomeController::class,'index']);
 
 Route::prefix('page')->group(function (){
     Route::get('login',[\App\Http\Controllers\LoginController::class,'showLogin'])->name('page.showLogin');
@@ -23,6 +21,7 @@ Route::prefix('page')->group(function (){
 
     Route::get('register',[\App\Http\Controllers\RegisterController::class,'showRegister'])->name('page.showRegister');
     Route::post('register',[\App\Http\Controllers\RegisterController::class,'register']);
+    Route::get('home',[\App\Http\Controllers\HomeController::class,'index'])->name('page.home');
 
 });
 
@@ -37,9 +36,23 @@ Route::prefix('admin')->group(function (){
         Route::post('edit/{id}',[\App\Http\Controllers\CategoryController::class,'update']);
 
         Route::get('destroy/{id}',[\App\Http\Controllers\CategoryController::class,'destroy'])->name('categories.destroy');
+
+        Route::get('search',[\App\Http\Controllers\CategoryController::class,'search'])->name('categories.search');
     });
 
+    Route::prefix('companies')->group(function (){
+        Route::get('index',[\App\Http\Controllers\CompanyController::class,'index'])->name('companies.index');
+        Route::get('detail/{id}',[\App\Http\Controllers\CompanyController::class,'show'])->name('companies.detail');
+        Route::get('create',[\App\Http\Controllers\CompanyController::class,'create'])->name('companies.create');
+        Route::post('create',[\App\Http\Controllers\CompanyController::class,'store']);
+
+        Route::get('edit/{id}',[\App\Http\Controllers\CompanyController::class,'edit'])->name('companies.edit');
+        Route::post('edit/{id}',[\App\Http\Controllers\CompanyController::class,'update']);
+
+        Route::get('destroy/{id}',[\App\Http\Controllers\CompanyController::class,'destroy'])->name('companies.destroy');
+    });
     Route::prefix('jobs')->group(function (){
+        Route::get('index',[\App\Http\Controllers\JobController::class,'index'])->name('jobs.index');
         Route::get('create',[\App\Http\Controllers\JobController::class,'create'])->name('jobs.create');
     });
 

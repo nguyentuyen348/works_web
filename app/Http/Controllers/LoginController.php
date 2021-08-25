@@ -23,9 +23,11 @@ class LoginController extends Controller
             'password' => $password
         ];
 
+
         if (Auth::attempt($data)) {
+
             session()->flash('success','login successfully');
-            return redirect()->route('home');
+            return redirect()->action([HomeController::class,'index']);
         } else {
             session()->flash('error', 'account not exist!');
             return redirect()->route('login');

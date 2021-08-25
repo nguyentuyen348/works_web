@@ -38,10 +38,13 @@
                             </span>
                     </div>
                     <div>
-                    <input type="file" class="form-control @error('') is-invalid @enderror" name="image" placeholder="" value="{{asset('storage/'.$category->image)}}">
+                        <input type="file" class="form-control @error('') is-invalid @enderror" name="image" placeholder="" value="{{asset('storage/'.$category->image)}}">
                         <img src="{{asset('storage/'.$category->image)}}" style="width: 100px; height: 100px" alt="">
-                </div>
                     </div>
+                    <div>
+
+                    </div>
+                </div>
 
                 <div class="alert_error">
                     @error('')
@@ -73,3 +76,4 @@
         </div>
     </div>
 @endsection
+
