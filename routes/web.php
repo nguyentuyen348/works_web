@@ -54,6 +54,9 @@ Route::prefix('admin')->group(function (){
     Route::prefix('jobs')->group(function (){
         Route::get('index',[\App\Http\Controllers\JobController::class,'index'])->name('jobs.index');
         Route::get('create',[\App\Http\Controllers\JobController::class,'create'])->name('jobs.create');
+        Route::post('create',[\App\Http\Controllers\JobController::class,'store']);
+        Route::get('detail/{id}',[\App\Http\Controllers\JobController::class,'detail'])->name('jobs.detail');
+
     });
 
 

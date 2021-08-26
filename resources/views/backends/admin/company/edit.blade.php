@@ -99,8 +99,9 @@
                             </span>
                     </div>
                     <div>
-                    <input type="file" class="form-control @error('') is-invalid @enderror" name="logo" value="{{asset('storage/'.$company->logo)}}" placeholder="">
-                        <img src="{{asset('storage/'.$company->logo)}}" style="width: 100px; height: 100px" alt="">
+                    <input id="input-company-logo" type="file" class="form-control @error('') is-invalid @enderror" name="logo" value="{{asset('storage/'.$company->logo)}}" placeholder="">
+                        <img id="old-company-logo" src="{{asset('storage/'.$company->logo)}}" style="width: 100px; height: 100px" alt="">
+
                 </div>
                     <div>
 
@@ -122,9 +123,6 @@
                     <input type="file" class="form-control @error('') is-invalid @enderror" name="photo_description" value="{{asset('storage/'.$company->photo_description)}}" placeholder="">
                     <img src="{{asset('storage/'.$company->photo_description)}}" style="width: 100px; height: 100px" alt="">
                 </div>
-                    <div>
-
-                    </div>
                 <div class="alert_error">
                     @error('')
                     <p class="text-danger">{{$message}}</p>
@@ -149,7 +147,12 @@
 
 
                 <button type="submit" class="btn btn-primary">Submit</button>
+
+
+            </div>
+                </div>
             </form>
+
         </div>
     </div>
 @endsection

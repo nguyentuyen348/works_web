@@ -26,8 +26,7 @@
                 <th scope="col">logo</th>
                 <th scope="col">photo description</th>
                 <th scope="col">video description</th>
-                <th scope="col" colspan="2">action</th>
-            </tr>
+
             </thead>
             @foreach($companies as $company)
                 <tbody>
@@ -45,9 +44,7 @@
                     <th><img src="{{asset('storage/'.$company->photo_description)}}" alt="{{asset('storage/'.$company->photo_description)}}"
                              style="width: 100px;height: 100px"></th>
                     <th> {{$company->video_description}}</th>
-                    <th><a href="{{route('companies.edit',$company)}}" class="btn-warning edit">edit</a></th>
-                    <th><a href="{{route('companies.destroy',$company)}}" class="btn-danger destroy"
-                           onclick="confirm('are you sure')">delete</a></th>
+
 
                 </tr>
                 </tbody>
@@ -71,7 +68,7 @@
                 <th scope="col">image</th>
                 <th scope="col">name</th>
                 <th scope="col">quantity</th>
-                <th scope="col" colspan="2">action</th>
+
             </tr>
             </thead>
             @foreach($categories as $category)
@@ -82,9 +79,7 @@
                              style="width: 100px;height: 100px"></th>
                     <th> {{$category->name}}</th>
                     <th> {{$category->quantity}}</th>
-                    <th><a href="{{route('categories.edit',$category)}}" class="btn-warning edit">edit</a></th>
-                    <th><a href="{{route('categories.destroy',$category)}}" class="btn-danger destroy"
-                           onclick="confirm('are you sure')">delete</a></th>
+
                 </tr>
                 </tbody>
             @endforeach
