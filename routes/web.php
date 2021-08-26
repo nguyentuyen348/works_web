@@ -35,7 +35,7 @@ Route::prefix('admin')->group(function (){
         Route::get('edit/{id}',[\App\Http\Controllers\CategoryController::class,'edit'])->name('categories.edit');
         Route::post('edit/{id}',[\App\Http\Controllers\CategoryController::class,'update']);
 
-        Route::get('destroy/{id}',[\App\Http\Controllers\CategoryController::class,'destroy'])->name('categories.destroy');
+        Route::get('{id}/destroy',[\App\Http\Controllers\CategoryController::class,'destroy'])->name('categories.destroy');
 
         Route::get('search',[\App\Http\Controllers\CategoryController::class,'search'])->name('categories.search');
     });
@@ -49,7 +49,7 @@ Route::prefix('admin')->group(function (){
         Route::get('edit/{id}',[\App\Http\Controllers\CompanyController::class,'edit'])->name('companies.edit');
         Route::post('edit/{id}',[\App\Http\Controllers\CompanyController::class,'update']);
 
-        Route::get('destroy/{id}',[\App\Http\Controllers\CompanyController::class,'destroy'])->name('companies.destroy');
+        Route::get('{id}/destroy',[\App\Http\Controllers\CompanyController::class,'destroy'])->name('companies.destroy');
     });
     Route::prefix('jobs')->group(function (){
         Route::get('index',[\App\Http\Controllers\JobController::class,'index'])->name('jobs.index');

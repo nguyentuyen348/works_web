@@ -11,6 +11,7 @@
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="{{asset('mycss/styles.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{'mycss/login_register_css/login.css'}}">
+    <script src="{{asset('myjs/my.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">

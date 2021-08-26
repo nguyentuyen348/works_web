@@ -30,7 +30,7 @@
             </thead>
             @foreach($companies as $company)
                 <tbody>
-                <tr>
+                <tr id="company-{{$company->id}}">
                     <th scope="row">{{$company->id}}</th>
 
                     <th> {{$company->name}}</th>
@@ -44,10 +44,11 @@
                    {{-- <th><img src="{{asset('storage/'.$company->photo_description)}}" alt="{{asset('storage/'.$company->photo_description)}}"
                              style="width: 100px;height: 100px"></th>--}}
                     <th> {{$company->video_description}}</th>
-                    <th><a href="{{route('companies.detail',$company)}}" class="btn-success">DETAIL</a></th>
-                    <th><a href="{{route('companies.edit',$company)}}" class="btn-warning edit">edit</a></th>
-                    <th><a href="{{route('companies.destroy',$company)}}" class="btn-danger destroy"
-                           onclick="confirm('are you sure')">delete</a></th>
+                    <th> <button class="btn-success"><a href="{{route('companies.detail',$company)}}" style="color: white">DETAIL</a></button></th>
+                    <th> <button class="btn-warning edit"><a href="{{route('companies.edit',$company)}}" >EDIT</a></button></th>
+                    <th> <button type="button" data-id="{{$company->id}}" class="btn-danger destroy delete-company">DELETE</button></th>
+                    {{--<th><a href="{{route('companies.destroy',$company)}}" class="btn-danger destroy"
+                           onclick="confirm('are you sure')">delete</a></th>--}}
 
                 </tr>
                 </tbody>

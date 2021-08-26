@@ -25,15 +25,14 @@
             </thead>
             @foreach($categories as $category)
                 <tbody>
-                <tr>
+                <tr id="category-{{$category->id}}">
                     <th scope="row">{{$category->id}}</th>
                     <th><img src="{{asset('storage/'.$category->image)}}" alt="{{asset('storage/'.$category->image)}}"
                              style="width: 100px;height: 100px"></th>
                     <th> {{$category->name}}</th>
                     <th> {{$category->quantity}}</th>
-                    <th><a href="{{route('categories.edit',$category)}}" class="btn-warning edit">edit</a></th>
-                    <th><a href="{{route('categories.destroy',$category)}}" class="btn-danger destroy"
-                           onclick="confirm('are you sure')">delete</a></th>
+                    <th><button class="btn-warning edit"> <a href="{{route('categories.edit',$category)}}" >edit</a></button></th>
+                    <th><button type="button" class="btn-danger destroy delete-category" data-id="{{$category->id}}">delete</button></th>
                 </tr>
                 </tbody>
             @endforeach
