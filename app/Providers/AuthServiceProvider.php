@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
@@ -25,13 +26,12 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        Gate::define('crud_manager', function () {
-            $userLogin = Auth::user();
-            foreach ($userLogin->roles as $role) {
-                if ($role->name == 'Admin') {
+        Gate::define('crud_user', function () {
+            $user = Auth::user();
+
+                if ($user->role_id == 1) {
                     return true;
                 }
-            }
             return false;
         });
     }

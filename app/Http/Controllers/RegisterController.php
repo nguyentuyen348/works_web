@@ -24,7 +24,25 @@ class RegisterController extends Controller
 
         if ($request->password===$request->confirm_password) {
             $user->save();
-            return redirect()->action([LoginController::class, 'showLogin']);
+
+            $email=$request->email;
+            $password=$request->password;
+            $data = [
+                'email' => $email,
+                'password' => $password
+            ];
+
+
+            if (Auth::attempt($data)) {
+                session()->flash('success','login successfully');
+                return redirect()->action([HomeController::class,'index']);
+            } else {
+                session()->flash('error', 'account not exist!');
+                return redirect()->route('login');
+            }
         }
+
+           /* return redirect()->action([HomeController::class, 'index']);
+        }*/
     }
 }

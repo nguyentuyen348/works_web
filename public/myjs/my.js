@@ -37,4 +37,23 @@
                 }
             })
 
+            $('.delete-user').click(function (){
+                if (confirm('are you sure')){
+                    let idUser = $(this).attr('data-id');
+                    let origin = location.origin;
+                    $.ajax({
+                        url:origin + '/admin/users' + idUser + '/destroy',
+                        method: 'GET',
+                        type: 'json',
+                        success:function (res){
+                            $('#user-' + idUser).remove();
+                        },
+                        error:function (error){
+
+                        }
+                    })
+
+                }
+            })
+
         });

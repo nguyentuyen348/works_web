@@ -16,8 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[\App\Http\Controllers\HomeController::class,'index']);
 
 Route::prefix('page')->group(function (){
-    Route::get('login',[\App\Http\Controllers\LoginController::class,'showLogin'])->name('page.showLogin');
+    Route::get('login',[\App\Http\Controllers\LoginController::class,'showLogin'])->name('login');
     Route::post('login',[\App\Http\Controllers\LoginController::class,'login']);
+    Route::get('logout',[\App\Http\Controllers\LoginController::class,'logout'])->name('page.logout');
 
     Route::get('register',[\App\Http\Controllers\RegisterController::class,'showRegister'])->name('page.showRegister');
     Route::post('register',[\App\Http\Controllers\RegisterController::class,'register']);
@@ -25,7 +26,10 @@ Route::prefix('page')->group(function (){
 
 });
 
+
+
 Route::prefix('admin')->group(function (){
+    Route::middleware(['auth'])->group(function (){
     Route::prefix('categories')->group(function (){
         Route::get('index',[\App\Http\Controllers\CategoryController::class,'index'])->name('categories.index');
 
@@ -59,6 +63,13 @@ Route::prefix('admin')->group(function (){
 
     });
 
+    Route::prefix('users')->group(function (){
+        Route::get('index',[\App\Http\Controllers\UserController::class,'index'])->name('users.index');
+        Route::get('edit/{id}',[\App\Http\Controllers\UserController::class,'edit'])->name('users.edit');
+        Route::post('edit/{id}',[\App\Http\Controllers\UserController::class,'update']);
+        Route::get('delete/{id}',[\App\Http\Controllers\UserController::class,'destroy'])->name('users.destroy');
+    });
+});
 
 
 });

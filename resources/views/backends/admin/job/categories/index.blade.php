@@ -31,8 +31,8 @@
                              style="width: 100px;height: 100px"></th>
                     <th> {{$category->name}}</th>
                     <th> {{$category->quantity}}</th>
-                    <th><button class="btn-warning edit"> <a href="{{route('categories.edit',$category)}}" >edit</a></button></th>
-                    <th><button type="button" class="btn-danger destroy delete-category" data-id="{{$category->id}}">delete</button></th>
+                    <th><button class="btn-warning edit"> <a href="{{route('categories.edit',$category)}}" >EDIT</a></button></th>
+                    <th><button type="button" class="btn-danger destroy delete-category" data-id="{{$category->id}}">DELETE</button></th>
                 </tr>
                 </tbody>
             @endforeach
