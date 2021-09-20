@@ -1,8 +1,44 @@
 @extends('backends.layouts.master')
 @section('content')
 
+
+    <style>
+
+        .category-item {
+            border: 1px solid #E2E2E2;
+            padding: 0.5em 0.5em 1em 0.5em;
+            border-radius: 1em;
+
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+
+            display: inline-block;
+            text-align: center;
+            background: #6dddf5;
+            width: 18%;
+
+        }
+        .edit-category,.delete-category{
+            width: 80px;
+            border: 1px solid #E2E2E2;
+            margin-bottom: 10px;
+            border-radius: 0.3em;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('.category-item').slick({
+                infinite: true,
+                slidesToShow: 3,
+                slidesToScroll:3
+            });
+        });
+    </script>
+
     <div>
-        <div style="margin-top: 20px">
+        <div style="margin-top: 15px">
             <h2>
                 LIST CATEGORY
             </h2>
@@ -13,31 +49,35 @@
                 {{ session('success') }}
             </div>
         @endif
-        <table border="2px" class="table">
-            <thead>
-            <tr>
-                <th scope="col">id</th>
-                <th scope="col">image</th>
-                <th scope="col">name</th>
-                <th scope="col">quantity</th>
-                <th scope="col" colspan="2">action</th>
-            </tr>
-            </thead>
-            @foreach($categories as $category)
-                <tbody>
-                <tr id="category-{{$category->id}}">
-                    <th scope="row">{{$category->id}}</th>
-                    <th><img src="{{asset('storage/'.$category->image)}}" alt="{{asset('storage/'.$category->image)}}"
-                             style="width: 100px;height: 100px"></th>
-                    <th> {{$category->name}}</th>
-                    <th> {{$category->quantity}}</th>
-                    <th><button class="btn-warning edit"> <a href="{{route('categories.edit',$category)}}" >EDIT</a></button></th>
-                    <th><button type="button" class="btn-danger destroy delete-category" data-id="{{$category->id}}">DELETE</button></th>
-                </tr>
-                </tbody>
-            @endforeach
-        </table>
-    </div>
+        <div style="margin:0" class="row ">
+                    @foreach($categories as $category)
+
+                            <div class="category-item" style="" id="category-{{$category->id}}">
+                                <a style="text-decoration: none"  href="{{route('page.home')}}">
+                                <img src="{{asset('storage/'.$category->image)}}" alt="">
+
+                                <div>
+                                    <h3>{{$category->name}}</h3>
+                                </div>
+                                <div>
+                                    <h3>{{$category->quantity}} works </h3>
+                                </div>
+                                </a>
+                                <div>
+                                    <button class="btn-warning edit-category"><a style="text-decoration: none" href="{{route('categories.edit',$category)}}" >EDIT</a></button>
+
+                                </div>
+                                <div>
+                                    <button type="button" data-id="{{$category->id}}" class="btn-danger destroy delete-category">DELETE</button>
+                                </div>
+
+                            </div>
+
+                    @endforeach
+                </div>
+
+        </div>
+
 
 
 

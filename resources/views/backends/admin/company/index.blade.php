@@ -1,5 +1,40 @@
 @extends('backends.layouts.master')
 @section('content')
+    <style>
+
+        .company-item {
+            border: 1px solid #E2E2E2;
+            padding: 0.5em 0.5em 1em 0.5em;
+            border-radius: 1em;
+
+
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+
+            display: inline-block;
+            text-align: center;
+            background: #6dddf5;
+            width: 18%;
+
+        }
+        .edit-company,.delete-company{
+            width: 80px;
+            border: 1px solid #E2E2E2;
+            margin-bottom: 10px;
+            border-radius: 0.3em;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('.company-item').slick({
+                infinite: true,
+                slidesToShow: 18,
+                slidesToScroll: 18
+            });
+        });
+    </script>
 
     <div>
         <div style="margin-top: 20px">
@@ -13,49 +48,42 @@
                 {{ session('success') }}
             </div>
         @endif
-        <table border="2px" class="table">
-            <thead>
-            <tr>
-                <th scope="col">id</th>
-                <th scope="col">name</th>
-                <th scope="col">company size</th>
-                <th scope="col">address</th>
-                <th scope="col">industry</th>
 
-                <th scope="col">logo</th>
 
-                <th scope="col">video description</th>
-                <th scope="col" colspan="2">action</th>
-            </tr>
-            </thead>
+        <div style="margin:0" class="row">
             @foreach($companies as $company)
-                <tbody>
-                <tr id="company-{{$company->id}}">
-                    <th scope="row">{{$company->id}}</th>
 
-                    <th> {{$company->name}}</th>
-                    <th> {{$company->company_size}}</th>
-                    <th> {{$company->address}}</th>
-                    <th> {{$company->industry}}</th>
+                <div class="company-item" style="" id="company-{{$company->id}}">
+                    <a style="text-decoration: none"  href="{{route('page.home')}}">
+                        <img width="150px" height="150px" src="{{asset('storage/'.$company->logo)}}" alt="">
 
+                        <div>
+                            <h3>{{$company->name}}</h3>
+                        </div>
+                        <div>
+                            <h3>{{$company->company_size}} people </h3>
+                        </div>
+                        <div>
+                            <h3>{{$company->industry}}</h3>
+                        </div>
+                        <div>
+                            <h3>{{$company->address}} </h3>
+                        </div>
+                    </a>
+                    <div>
+                        <button class="btn-warning edit-company"><a style="text-decoration: none" href="{{route('companies.edit',$company)}}" >EDIT</a></button>
 
-                    <th><img src="{{asset('storage/'.$company->logo)}}" alt="{{asset('storage/'.$company->logo)}}"
-                             style="width: 100px;height: 100px"></th>
-                   {{-- <th><img src="{{asset('storage/'.$company->photo_description)}}" alt="{{asset('storage/'.$company->photo_description)}}"
-                             style="width: 100px;height: 100px"></th>--}}
-                    <th> {{$company->video_description}}</th>
-                    <th> <button class="btn-success"><a href="{{route('companies.detail',$company)}}" style="color: white">DETAIL</a></button></th>
-                    <th> <button class="btn-warning edit"><a href="{{route('companies.edit',$company)}}" >EDIT</a></button></th>
-                    <th> <button type="button" data-id="{{$company->id}}" class="btn-danger destroy delete-company">DELETE</button></th>
-                    {{--<th><a href="{{route('companies.destroy',$company)}}" class="btn-danger destroy"
-                           onclick="confirm('are you sure')">delete</a></th>--}}
+                    </div>
+                    <div>
+                        <button type="button" data-id="{{$company->id}}" class="btn-danger destroy delete-company">DELETE</button>
+                    </div>
 
-                </tr>
-                </tbody>
+                </div>
+
             @endforeach
-        </table>
-    </div>
+        </div>
 
+    </div>
 
 
 @endsection

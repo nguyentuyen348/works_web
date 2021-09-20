@@ -34,7 +34,7 @@
                 <div class="input-group">
                     <div id="job_detail">
                         <span class="" >
-                                image :
+                                Image :
                             </span>
                     </div>
                     <div>
@@ -57,7 +57,7 @@
                 <div class="input-group">
                     <div id="job_detail">
                         <span class="" >
-                                quantity :
+                                Quantity :
                             </span>
                     </div>
                     <input type="text" class="form-control @error('') is-invalid @enderror" name="quantity" placeholder="" value="{{$category->quantity}}">
@@ -71,7 +71,7 @@
 
 
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button style="margin-left: 41px" type="submit" class="btn btn-primary">UPDATE</button>
             </form>
         </div>
     </div>

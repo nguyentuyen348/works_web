@@ -34,6 +34,10 @@
                     <th> {{$user->email}}</th>
                     <th> {{$user->company_id}}</th>
                     <th> {{$user->role_id}}</th>
+
+
+
+                   {{-- <th><button class="btn-success profile"> <a href="{{route('user.profile',$userProfile)}}" >PROFILE</a></button></th>--}}
                     <th><button class="btn-warning edit"> <a href="{{route('users.edit',$user)}}" >EDIT</a></button></th>
                     <th><button type="button" class="btn-danger destroy delete-user" data-id="{{$user->id}}">DELETE</button></th>
                 </tr>

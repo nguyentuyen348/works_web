@@ -29,7 +29,7 @@ class LoginController extends Controller
             session()->flash('success','login successfully');
             return redirect()->action([HomeController::class,'index']);
         } else {
-            session()->flash('error', 'account not exist!');
+            session()->flash('error', 'account not found!');
             return redirect()->route('login');
         }
     }

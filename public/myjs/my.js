@@ -1,5 +1,18 @@
     $(document).ready(function() {
 
+     /*   $.ajax({
+            url:"https://vapi.vnappmob.com/api/province",
+            method: 'GET',
+            type:"json",
+        }).done(function (response){
+            console.log(response)
+            display(response)
+        }).fail(function (){
+            console.log('fail')
+        })
+
+*/
+
 
             $('.delete-category').click(function () {
                 if (confirm('are you sure?')) {
@@ -42,7 +55,7 @@
                     let idUser = $(this).attr('data-id');
                     let origin = location.origin;
                     $.ajax({
-                        url:origin + '/admin/users' + idUser + '/destroy',
+                        url:origin + '/admin/users/' + idUser + '/destroy',
                         method: 'GET',
                         type: 'json',
                         success:function (res){
@@ -56,4 +69,12 @@
                 }
             })
 
+        function search(){
+                let find = $('#input-search').value()
+
+        }
+
+
+
         });
+

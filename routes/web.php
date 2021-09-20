@@ -12,10 +12,12 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('/auth/redirect/{provider}', [\App\Http\Controllers\SocialController::class,'redirect']);
+Route::get('/callback/{provider}', [\App\Http\Controllers\SocialController::class,'callback']);
 Route::get('/',[\App\Http\Controllers\HomeController::class,'index']);
 
 Route::prefix('page')->group(function (){
+
     Route::get('login',[\App\Http\Controllers\LoginController::class,'showLogin'])->name('login');
     Route::post('login',[\App\Http\Controllers\LoginController::class,'login']);
     Route::get('logout',[\App\Http\Controllers\LoginController::class,'logout'])->name('page.logout');
@@ -57,9 +59,18 @@ Route::prefix('admin')->group(function (){
     });
     Route::prefix('jobs')->group(function (){
         Route::get('index',[\App\Http\Controllers\JobController::class,'index'])->name('jobs.index');
+
         Route::get('create',[\App\Http\Controllers\JobController::class,'create'])->name('jobs.create');
         Route::post('create',[\App\Http\Controllers\JobController::class,'store']);
-        Route::get('detail/{id}',[\App\Http\Controllers\JobController::class,'detail'])->name('jobs.detail');
+
+        Route::get('detail/{id}',[\App\Http\Controllers\JobController::class,'show'])->name('job.detail');
+
+        Route::get('edit/{id}',[\App\Http\Controllers\JobController::class,'edit'])->name('job.edit');
+        Route::post('edit/{id}',[\App\Http\Controllers\JobController::class,'update']);
+
+        Route::get('search',[\App\Http\Controllers\JobController::class,'search'])->name('jobs.search');
+
+        Route::get('delete',[\App\Http\Controllers\JobController::class,'destroy'])->name('job.delete');
 
     });
 
@@ -67,9 +78,21 @@ Route::prefix('admin')->group(function (){
         Route::get('index',[\App\Http\Controllers\UserController::class,'index'])->name('users.index');
         Route::get('edit/{id}',[\App\Http\Controllers\UserController::class,'edit'])->name('users.edit');
         Route::post('edit/{id}',[\App\Http\Controllers\UserController::class,'update']);
-        Route::get('delete/{id}',[\App\Http\Controllers\UserController::class,'destroy'])->name('users.destroy');
+        Route::get('{id}/destroy',[\App\Http\Controllers\UserController::class,'destroy'])->name('users.destroy');
     });
 });
+});
+
+Route::prefix('user')->group(function (){
+    Route::get('create',[\App\Http\Controllers\UserProfileController::class,'create'])->name('user.create');
+    Route::get('profile',[\App\Http\Controllers\UserProfileController::class,'profile'])->name('user.profile');
+    Route::get('edit/{id}',[\App\Http\Controllers\UserProfileController::class,'edit'])->name('user.edit');
+    Route::post('edit/{id}',[\App\Http\Controllers\UserProfileController::class,'update']);
 
 
 });
+
+Route::get('/city',function (){
+    return view('city');
+});
+

@@ -1,23 +1,28 @@
 @extends('backends.layouts.master')
 @section('content')
     <style>
-        .col-md-2,.col-md-10,.col-md-12{
-            float: left;
-        }
-        p{
-            padding: 0 0 0 0;
-            margin-block-start: 0;
-            margin-block-end: 0;
-        }
-        div{
-            border: solid 1px black;
+
+        .job-item {
+            border: 1px solid #E2E2E2;
+            padding: 0.5em 0.5em 1em 0.5em;
+            border-radius: 1em;
+
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+
+            display: inline-block;
+            text-align: center;
+            background: #6dddf5;
+            width: 18%;
 
         }
-        .row{
-            --bs-gutter-x: 0;
-        }
-        .col-content-wrapper{
-            margin-left: 5px;
+        .edit-job,.delete-job{
+            width: 80px;
+            border: 1px solid #E2E2E2;
+            margin-bottom: 10px;
+            border-radius: 0.3em;
         }
     </style>
 
@@ -33,44 +38,93 @@
         </div>
         <section class="page-job-detail-header">
             <div class="box box-md" style="padding: 0 0 0 0 ">
-                <div class="row">
+                <div style="margin:0" class="row">
                     @foreach($jobs as $job)
 
-                    <div class="col-md-2 col-logo" style="width: 150px">
+                        <div class="job-item" style="" id="job-{{$job->id}}">
+                            <a style="text-decoration: none"  href="{{route('job.detail',$job->id)}}">
+                                <img width="150px" height="150px" src="{{asset('storage/'.$job->company_logo)}}" alt="{{asset('storage/'.$job->company_logo)}}">
 
-                            <p>LOGO COMPANY</p>
-                           <p> {{$job->company_id}}</p>
-                           {{--<img src="{{asset('storage/')}}" alt="" style="width: 150px">--}}
+                                <div>
+                                    <h3>{{$job->title}}</h3>
+                                </div>
+                                <div>
+                                    <h3>{{$job->level}}</h3>
+                                </div>
+                                <div>
+                                    <h3>{{$job->type}}</h3>
+                                </div>
+                                <div>
+                                    <h3>{{$job->salary}}</h3>
+                                </div>
+                            </a>
 
-                    </div>
-
-                    <div class="col-md-10 col-content-wrapper">
-
-                        <div class="row">
-
-                            <div class="col-md-12">
-                                <p>   Title: {{' '.$job->title}} </p>
-                            </div>
-
-                            <div class="col-md-12">
-                                <p> Level: {{' '.$job->level}} </p>
-                            </div>
-
-                            <div class="col-md-12">
-                                <p> Type: {{' '.$job->type}} </p>
-                            </div>
-
-                            <div class="col-md-12">
-                                <p> Salary: {{' '.$job->salary}} </p>
-                            </div>
                         </div>
 
-                    </div>
                     @endforeach
                 </div>
+
             </div>
         </section>
+</div>
+  {{-- <div class="heading-section" style="padding: 0 12.5%;clear: both;">
 
+       <div class="out-stading-jobs">
+           <div class="swiper-container">
+               <div class="swiper-wrapper" style=";margin-right: 10px;">
 
+                   <div class="job-image">
+                       <a href="">
+                           <div class="logo-company">
+                               <img style="border: 2px solid blueviolet;border-radius: 1em;width: 150px;height: 150px" src="{{asset('storage/'.$job->company_logo)}}" alt="{{asset('storage/'.$job->company_logo)}}">
+                               <h3>
+                                   {{$job->company}} COMPANY
+                               </h3>
+                           </div>
+
+                           --}}{{-- <div style="">
+                                <img src="" alt="image-2">
+                            </div>--}}{{--
+                       </a>
+                   </div>
+                   <div class="content">
+                       <div class="job-desc">
+                           <div class="heading">
+                               <p>
+                                   {{$job->title}}
+                               </p>
+                           </div>
+                           <div class="content-item-company-name">
+                               <p> Company: {{$job->company}}</p>
+                           </div>
+                           <div class="content-item-location">
+                               <p> Working Location: {{$job->working_location}}</p>
+                           </div>
+                           <div class="content-item-salary">
+                               <p> Salary: {{$job->salary}}</p>
+                           </div>
+                           <div class="content-time">
+                               <p> Deadline for submission: {{$job->deadline_for_submission}}</p>
+                           </div>
+                           <div>
+                               <p> Contact Person: {{$job->contact_person}}</p>
+                           </div>
+                           <div>
+                               <p> Job Description: {{$job->description}}</p>
+                           </div>
+                           <div>
+                               <p> Job Requirement: {{$job->requirements}}</p>
+                           </div>
+                           <div>
+                               <button><a href="{{route('job.detail',$job)}}">DETAIL</a></button>
+                           </div>
+
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+   </div>
+--}}
 
 @endsection

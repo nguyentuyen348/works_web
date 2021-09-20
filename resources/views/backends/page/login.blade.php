@@ -64,7 +64,7 @@
                 </a>
             </div>
             <div class="col-xs-2 col-sm-2">
-                <a href="#" class="btn btn-lg btn-block kpx_btn-google-plus" data-toggle="tooltip" data-placement="top" title="Google Plus">
+                <a href="{{ url('/auth/redirect/google') }}" class="btn btn-lg btn-block kpx_btn-google-plus" data-toggle="tooltip" data-placement="top" title="Google Plus">
                     <i class="fa fa-google-plus fa-2x"></i>
                     <span class="hidden-xs"></span>
                 </a>
@@ -116,6 +116,14 @@
                         @enderror
                     </div>
                     <hr />
+                    <hr>
+                    <div>
+                        @if (session('error'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                    </div>
                     <button class="btn btn-lg btn-outline-primary btn-block" type="submit"><i class="fa fa-sign-in"></i> Login</button>
                 </form>
 
@@ -170,17 +178,16 @@
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content -->
                         <h6 class="text-uppercase fw-bold mb-4">
-                            <i class="fas fa-gem me-3"></i>Company name
+                            <i class="fas fa-gem me-3"></i> WorksWeb
                         </h6>
                         <p>
-                            Here you can use rows and columns to organize your footer content. Lorem ipsum
-                            dolor sit amet, consectetur adipisicing elit.
+                            Trade your youth for a good job !
                         </p>
                     </div>
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                   {{-- <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             Products
@@ -197,11 +204,11 @@
                         <p>
                             <a href="#!" class="text-reset">Laravel</a>
                         </p>
-                    </div>
+                    </div>--}}
                     <!-- Grid column -->
 
                     <!-- Grid column -->
-                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                  {{--  <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
                             Useful links
@@ -218,7 +225,7 @@
                         <p>
                             <a href="#!" class="text-reset">Help</a>
                         </p>
-                    </div>
+                    </div>--}}
                     <!-- Grid column -->
 
                     <!-- Grid column -->
@@ -227,13 +234,13 @@
                         <h6 class="text-uppercase fw-bold mb-4">
                             Contact
                         </h6>
-                        <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+                        <p><i class="fas fa-home me-3"></i>  Cầu Giấy, Hà Nội, Việt Nam</p>
                         <p>
                             <i class="fas fa-envelope me-3"></i>
-                            info@example.com
+                            vovinam@gmail.com
                         </p>
-                        <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
-                        <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+                        <p><i class="fas fa-phone me-3"></i> + 84 866 822</p>
+                        <p><i class="fas fa-print me-3"></i> + 84 866 822</p>
                     </div>
                     <!-- Grid column -->
                 </div>
@@ -244,8 +251,8 @@
 
         <!-- Copyright -->
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2021 Copyright:
-            <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+          {{--  © 2021 Copyright:--}}
+            <a class="text-reset fw-bold" href="https://mdbootstrap.com/">{{--MDBootstrap.com--}}</a>
         </div>
         <!-- Copyright -->
     </footer>

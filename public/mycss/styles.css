@@ -6532,12 +6532,16 @@ textarea.form-control-lg {
 }
 
 .fixed-top, .sb-nav-fixed #layoutSidenav #layoutSidenav_nav, .sb-nav-fixed .sb-topnav {
-  position: fixed;
+
   top: 0;
   right: 0;
   left: 0;
   z-index: 1030;
 }
+#head{
+
+}
+
 
 .fixed-bottom {
   position: fixed;
@@ -11691,3 +11695,50 @@ body {
     width: 10%;
     text-align: center;
 }
+
+
+
+#menu ul, #menu li{
+    padding:0;
+    margin:0;
+}
+
+#menu li{
+    position: relative;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding:0;
+}
+
+#menu li a{
+    width:150px;
+    height: 30px;
+    display: block;
+    text-decoration:none;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
+
+#menu ul ul li a{
+    width: 200px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#menu li a:hover{
+
+}
+
+#menu ul ul{
+    position: absolute;
+    top: 30px;
+    left: 15px;
+    visibility: hidden;
+}
+
+#menu ul li:hover ul{
+    visibility: visible;
+}
+

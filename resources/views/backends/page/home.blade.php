@@ -6,85 +6,259 @@
             {{ session('success') }}
         </div>
     @endif
-    {{--list company--}}
-    <div style="margin-top: 10px">
-        <div style="margin-top: 20px">
+    {{--list job--}}
+
+    <style>
+
+        .job-item {
+            border: 1px solid #E2E2E2;
+            padding: 0.5em 0.5em 1em 0.5em;
+            border-radius: 1em;
+            -webkit-border-radius: 1em;
+            -moz-border-radius: 1em;
+
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+
+            display: inline-block;
+            text-align: center;
+            background: #6dddf5;
+            width: 18%;
+
+        }
+        .edit-job,.delete-job{
+            width: 80px;
+            border: 1px solid #E2E2E2;
+            margin-bottom: 10px;
+            border-radius: 0.3em;
+        }
+        img{
+            border-radius: 1em;
+        }
+        .company-item {
+            border: 1px solid #E2E2E2;
+            padding: 0.5em 0.5em 1em 0.5em;
+            border-radius: 0.5em;
+            -webkit-border-radius: 0.5em;
+            -moz-border-radius: 0.5em;
+
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+
+            display: inline-block;
+            text-align: center;
+            background: #6dddf5;
+            width: 18%;
+
+        }
+        .edit-company,.delete-company{
+            width: 80px;
+            border: 1px solid #E2E2E2;
+            margin-bottom: 10px;
+            border-radius: 0.3em;
+        }
+        .category-item {
+            border: 1px solid #E2E2E2;
+            padding: 0.5em 0.5em 1em 0.5em;
+            border-radius: 0.5em;
+            -webkit-border-radius: 0.5em;
+            -moz-border-radius: 0.5em;
+
+            transition: 0.5s all;
+            -webkit-transition: 0.5s all;
+            -moz-transition: 0.5s all;
+            -o-transition: 0.5s all;
+
+            display: inline-block;
+            text-align: center;
+            background: #6dddf5;
+            width: 18%;
+
+        }
+        .edit-category,.delete-category{
+            width: 80px;
+            border: 1px solid #E2E2E2;
+            margin-bottom: 10px;
+            border-radius: 0.3em;
+        }
+    </style>
+
+    <div class="wraper-job-detail-header" style="margin-left: 100px">
+        <div>
             <h2>
-                LIST COMPANY
+                LIST JOB
             </h2>
         </div>
-        <p><a class="btn btn-success btn-lg" href="{{route('companies.create')}}">add companies</a></p>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">id</th>
-                <th scope="col">name</th>
-                <th scope="col">company size</th>
-                <th scope="col">address</th>
-                <th scope="col">industry</th>
-                <th scope="col">benefits</th>
-                <th scope="col">logo</th>
-                <th scope="col">photo description</th>
-                <th scope="col">video description</th>
-
-            </thead>
-            @foreach($companies as $company)
-                <tbody>
-                <tr>
-                    <th scope="row">{{$company->id}}</th>
-
-                    <th> {{$company->name}}</th>
-                    <th> {{$company->company_size}}</th>
-                    <th> {{$company->address}}</th>
-                    <th> {{$company->industry}}</th>
-                    <th> {{$company->benefits}}</th>
-
-                    <th><img src="{{asset('storage/'.$company->logo)}}" alt="{{asset('storage/'.$company->logo)}}"
-                             style="width: 100px;height: 100px"></th>
-                    <th><img src="{{asset('storage/'.$company->photo_description)}}" alt="{{asset('storage/'.$company->photo_description)}}"
-                             style="width: 100px;height: 100px"></th>
-                    <th> {{$company->video_description}}</th>
 
 
-                </tr>
-                </tbody>
-            @endforeach
-        </table>
-    </div>
+        <section class="page-job-detail-header">
+            <div class="box box-md" style="padding: 0 0 0 0 ">
+                <div style="margin:0" class="row">
+                    @foreach($jobs as $job)
+
+                        <div class="job-item" style="" id="job-{{$job->id}}">
+                            <a style="text-decoration: none"  href="{{route('job.detail',$job->id)}}">
+                                <img width="150px" height="150px" src="{{asset('storage/'.$job->company_logo)}}" alt="{{asset('storage/'.$job->company_logo)}}">
+
+                                <div>
+                                    <h3>{{$job->title}}</h3>
+                                </div>
+                                <div>
+                                    <h3>{{$job->level}}</h3>
+                                </div>
+                                <div>
+                                    <h3>{{$job->type}}</h3>
+                                </div>
+                                <div>
+                                    <h3>{{$job->salary}}</h3>
+                                </div>
+
+                            </a>
+
+                            {{--  <div>
+                                  <button class="btn-warning edit-job"><a style="text-decoration: none" href="{{route('job.edit',$job)}}" >EDIT</a></button>
+
+                              </div>
+                              <div>
+                                  <button type="button" data-id="{{$job->id}}" class="btn-danger destroy delete-job">DELETE</button>
+                              </div>--}}
+
+                        </div>
+
+                    @endforeach
+                </div>
+
+                <div>
+                    <h3>
+                        Quantity : {{$jobs_count}}
+                    </h3>
+                </div>
+
+            </div>
+        </section>
+
+
+        {{--list company--}}
+
+        <script>
+            $(document).ready(function(){
+                $('.company-item').slick({
+                    infinite: true,
+                    slidesToShow: 18,
+                    slidesToScroll: 18
+                });
+            });
+        </script>
+
+        <div>
+            <div style="margin-top: 20px">
+                <h2>
+                    LIST COMPANY
+                </h2>
+            </div>
+
+
+
+            <div style="margin:0" class="row">
+                @foreach($companies as $company)
+
+                    <div class="company-item" style="" id="company-{{$company->id}}">
+                        <a style="text-decoration: none"  href="{{route('page.home')}}">
+                            <img width="150px" height="150px" src="{{asset('storage/'.$company->logo)}}" alt="">
+
+                            <div>
+                                <h3>{{$company->name}}</h3>
+                            </div>
+                            <div>
+                                <h3>{{$company->company_size}} people </h3>
+                            </div>
+                            <div>
+                                <h3>{{$company->industry}}</h3>
+                            </div>
+                            <div>
+                                <h3>{{$company->address}} </h3>
+                            </div>
+
+                        </a>
+                      {{--  <div>
+                            <button class="btn-warning edit-company"><a style="text-decoration: none" href="{{route('companies.edit',$company)}}" >EDIT</a></button>
+
+                        </div>
+                        <div>
+                            <button type="button" data-id="{{$company->id}}" class="btn-danger destroy delete-company">DELETE</button>
+                        </div>
+--}}
+                    </div>
+
+                @endforeach
+            </div>
+            <div>
+                <h3>
+                    Quantity : {{$companies_count}}
+                </h3>
+            </div>
+
+        </div>
 
     {{--list category--}}
-    <div>
-        <div style="margin-top: 20px">
-            <h2>
-                LIST CATEGORY
-            </h2>
+
+        <script>
+            $(document).ready(function(){
+                $('.category-item').slick({
+                    infinite: true,
+                    slidesToShow: 3,
+                    slidesToScroll: 3
+                });
+            });
+        </script>
+
+        <div>
+            <div style="margin-top: 15px">
+                <h2>
+                    LIST CATEGORY
+                </h2>
+            </div>
+
+
+            <div style="margin:0" class="row">
+                @foreach($categories as $category)
+
+                    <div class="category-item" style="" id="category-{{$category->id}}">
+                        <a style="text-decoration: none"  href="{{route('page.home')}}">
+                            <img src="{{asset('storage/'.$category->image)}}" alt="">
+
+                            <div>
+                                <h3>{{$category->name}}</h3>
+                            </div>
+                            <div>
+                                <h3>{{$category->quantity}} works </h3>
+                            </div>
+                        </a>
+                      {{--  <div>
+                            <button class="btn-warning edit-category"><a style="text-decoration: none" href="{{route('categories.edit',$category)}}" >EDIT</a></button>
+
+                        </div>
+                        <div>
+                            <button type="button" data-id="{{$category->id}}" class="btn-danger destroy delete-category">DELETE</button>
+                        </div>--}}
+
+                    </div>
+
+                @endforeach
+            </div>
+            <div>
+                <h3>
+                    Quantity : {{$categories_count}}
+                </h3>
+            </div>
+
+
         </div>
 
-        <p><a class="btn btn-success btn-lg" href="{{route('categories.create')}}">add categories</a></p>
-        <table class="table">
-            <thead>
-            <tr>
-                <th scope="col">id</th>
-                <th scope="col">image</th>
-                <th scope="col">name</th>
-                <th scope="col">quantity</th>
-
-            </tr>
-            </thead>
-            @foreach($categories as $category)
-                <tbody>
-                <tr>
-                    <th scope="row">{{$category->id}}</th>
-                    <th><img src="{{asset('storage/'.$category->image)}}" alt="{{asset('storage/'.$category->image)}}"
-                             style="width: 100px;height: 100px"></th>
-                    <th> {{$category->name}}</th>
-                    <th> {{$category->quantity}}</th>
-
-                </tr>
-                </tbody>
-            @endforeach
-        </table>
-    </div>
 
 
 @endsection
