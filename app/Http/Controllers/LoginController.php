@@ -25,7 +25,6 @@ class LoginController extends Controller
 
 
         if (Auth::attempt($data)) {
-
             session()->flash('success','login successfully');
             return redirect()->action([HomeController::class,'index']);
         } else {

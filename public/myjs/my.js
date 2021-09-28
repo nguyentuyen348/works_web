@@ -1,7 +1,7 @@
     $(document).ready(function() {
 
      /*   $.ajax({
-            url:"https://vapi.vnappmob.com/api/province",
+            url:"http://127.0.0.1:8000/admin/jobs/detail",
             method: 'GET',
             type:"json",
         }).done(function (response){
@@ -9,9 +9,9 @@
             display(response)
         }).fail(function (){
             console.log('fail')
-        })
+        })*/
 
-*/
+
 
 
             $('.delete-category').click(function () {

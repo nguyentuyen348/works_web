@@ -24,7 +24,6 @@ class RegisterController extends Controller
 
         if ($request->password===$request->confirm_password) {
             $user->save();
-
             $email=$request->email;
             $password=$request->password;
             $data = [

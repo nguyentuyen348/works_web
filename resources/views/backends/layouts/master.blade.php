@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link href="{{asset('mycss/styles.css')}}" rel="stylesheet" />
     <link rel="stylesheet" href="{{'mycss/login_register_css/login.css'}}">
+    <link rel="stylesheet" href="{{asset('mycss/home.css')}}">
     <script src="{{asset('myjs/my.js')}}"></script>
     <style>
         .mySlides {display:none}

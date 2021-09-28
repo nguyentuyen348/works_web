@@ -5,13 +5,6 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-   {{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>--}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -19,6 +12,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="{{asset('mycss/login_register_css/login.css')}}">
+    <style>
+
+    </style>
     <title>Document</title>
 
     <style>
@@ -37,6 +33,9 @@
        .text-uppercase{
            color: wheat;
        }
+       .bg-light{
+           background: none !important;
+       }
     </style>
 </head>
 <body>
@@ -49,7 +48,7 @@
 
 
     <div class="kpx_login" >
-        <h3 class="kpx_authTitle">Login or <a href="{{route('page.showRegister')}}">Sign up</a></h3>
+        <h3 class="kpx_authTitle"><a href="{{route('page.home')}}">Home </a> Login or <a href="{{route('page.showRegister')}}">Sign up</a></h3>
         <div class="row kpx_row-sm-offset-3 kpx_socialButtons">
             <div class="col-xs-2 col-sm-2">
                 <a href="#" class="btn btn-lg btn-block kpx_btn-facebook" data-toggle="tooltip" data-placement="top" title="Facebook">
@@ -133,7 +132,7 @@
     </div>
 
     <!-- Footer -->
-    <footer class="text-center text-lg-start text-muted">
+    <footer class="text-center text-lg-start text-muted bg-light">
         <!-- Section: Social media -->
         <section
             class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom"
@@ -184,51 +183,7 @@
                             Trade your youth for a good job !
                         </p>
                     </div>
-                    <!-- Grid column -->
 
-                    <!-- Grid column -->
-                   {{-- <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            Products
-                        </h6>
-                        <p>
-                            <a href="#!" class="text-reset">Angular</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">React</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Vue</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Laravel</a>
-                        </p>
-                    </div>--}}
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
-                  {{--  <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                        <!-- Links -->
-                        <h6 class="text-uppercase fw-bold mb-4">
-                            Useful links
-                        </h6>
-                        <p>
-                            <a href="#!" class="text-reset">Pricing</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Settings</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Orders</a>
-                        </p>
-                        <p>
-                            <a href="#!" class="text-reset">Help</a>
-                        </p>
-                    </div>--}}
-                    <!-- Grid column -->
-
-                    <!-- Grid column -->
                     <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                         <!-- Links -->
                         <h6 class="text-uppercase fw-bold mb-4">
